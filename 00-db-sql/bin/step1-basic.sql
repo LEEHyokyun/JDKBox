@@ -1,5 +1,8 @@
 -- note : raw query
-/*
+/*	JDBC
+ * 	ㅁ Java database connectivity
+ * 	ㅁ JAVA application과 db를 연결하기위한 기술로, spring framework를 사용하기 위한 기반이 된다.
+ * 
  * SQL, Structure Query Language
  * DB에서 데이터를 정의, 조작, 제어
  * 
@@ -64,3 +67,16 @@ DELETE FROM member WHERE id = 'java';
 
 -- table 확인
 SELECT * FROM member;
+
+--Data CRUD
+--Create(INSERT), READ(Select), Update(Update), Delete(delete)
+
+SELECT * FROM member
+
+INSERT INTO member(ID, password, name, address) VALUES('angel', 'kind', '이상순', '애월읍');
+
+SELECT id, password FROM member WHERE id='angel';
+
+UPDATE member SET address = '오리' WHERE address='애월읍';
+
+DELETE FROM member WHERE id='angel';

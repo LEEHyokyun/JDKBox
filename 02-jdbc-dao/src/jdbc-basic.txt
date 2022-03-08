@@ -1,0 +1,13 @@
+ㅁ application 기초
+	ㅁ process
+		ㄴ Test --- method call --- MemberDAO --- DB
+			그 후, DB에서 받은 MemberDAO가 return memberVO -- 이를 test에서 받는다.
+		ㄴ ** rs.next -> 최초 포인터는 처음 인덱스를 가르키므로, 무조건 실행하게 된다.
+	ㅁ DAO, Database access - database에 access하는 객체
+	ㅁ VO, Database Value - database에 value 저장, 즉 데이터를 저장하는 객체
+		ㄴ table attribute 정보와 일치, 생성자 및 getter/setter 설정
+	ㅁ 참고
+		* select -> dao를 통해 받아온 data를 vo 생성자에 적용하여, 그대로 해당 객체 정보값을 return
+		* Update -> dao를 통해 update한 data를 pstmt count 정보로 sysout
+		
+※ static - 별도의 객체 생성없이 바로 실행이 가능하다.

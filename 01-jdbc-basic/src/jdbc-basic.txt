@@ -1,0 +1,39 @@
+ㅁ SQL
+	ㅁ DDL
+		* CREATE, DROP, ALTER(데이터 정의)
+	ㅁ DML
+		* INSERT, SELEECT, UPDATE, DELETE(데이터 조작)
+	ㅁ DCL
+		* GRANT, REVOKE, COMMIT, ROLLBACK(데이터 제어)
+ㅁ JDBC
+	ㅁ Java Database Connetivity
+	ㅁ 자바 어플리케이션과 데이터베이스 연동을 위한 기술
+		ㄴ client <-> java application <-> jdbc <-> db
+	ㅁ process 
+		* java application과 database 연동
+ 		* 1. jdbc driver loading - jdk 1.6버전 이상에서는 생략가능
+ 		* 2. DB Connection - db server 연결
+ 		* 3. PreparedStatement - 보안 등 기타 환경설정
+ 		* 4. execute - SQL 실행(*INSERT, UPDATE, DELETE : executeUpdate - int, *SELECT: executeQuery - ResultSet)
+ 		* 5. ResultSet - SQL 실행결과확인
+ 		* 6. close - 자원폐쇄(DB close)
+	ㅁ JDBC API 종류
+		ㅁ for Java 개발자
+		ㅁ for Java 표준 개발자(설계구조)
+			ㄴ JDBC 전체설계구조 및 명세/기준 제공
+		ㅁ for DBMS Vendor
+		* JDBC에서 제공하는 것들은 기본적으로 "인터페이스"들이다.
+		* 말 그대로 JDBC에서는 인터페이스 제공, 이에 대한 구현체들이 DB의 개념이다.
+		* write once, Run anywhere .. java application 개발자들이 최초 db loading 하는 작업, 한번의 작성으로 db제어가능
+		ㅁ JDBC interface
+		* Oracle, MySQL 등 구현체는 다를 수 있지만, 사용자 입장에서 interface만 알고있으면 db loading 및 사용 가능.
+			ㄴ 낮은 결합도, 생산성 증가, 업데이트 용이
+		* 다형성 관점에서, 하나의 소통방식으로 각 Database에 맞게 설정 및 적용, 작동
+	ㅁ ResultSet
+		ㅁ SQL 실행후 생성되는 data type
+		ㅁ SQL로 부터 얻어오는 전체적인 표 - rs, 각각의 column(record) - rs.next()
+
+ㅁ application 기초
+	ㅁ DAO, Database access -
+
+※ static - 별도의 객체 생성없이 바로 실행이 가능하다.
