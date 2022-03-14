@@ -17,3 +17,11 @@ INSERT INTO account(account_no, name, password, balance) VALUES(account_seq.next
 --3. 
 
 SELECT * FROM account;
+
+SELECT NAME, ACCOUNT_NO FROM account WHERE ACCOUNT_NO = 3;
+
+SELECT COUNT(*) FROM account WHERE ACCOUNT_NO = 3;
+
+UPDATE account SET BALANCE = BALANCE + 10 WHERE ACCOUNT_NO = 1
+
+SELECT ACCOUNT_NO, NAME, PASSWORD, BALANCE FROM account WHERE BALANCE = (SELECT MAX(BALANCE) FROM account);
