@@ -28,7 +28,7 @@ public class TestJDBC1 {
 			Class.forName(driver); //jre 라이브러리는 자동적으로 접근, 경로 별도 기재X
 			System.out.println("Oracle DB Driver loading");
 			//Connection type 
-			Connection con = DriverManager.getConnection(dbUrl, "scott", "tiger");
+			Connection con = DriverManager.getConnection("dbc:oracle:thin:@59.11.246.222:1521:xe", "scott", "tiger");
 			System.out.println("DB Connected to "+con);
 			//SQL set
 			String sql = "SELECT id, password, address FROM member";
