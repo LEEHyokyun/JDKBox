@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import common.DbInfo;
 
@@ -59,6 +60,47 @@ public class EmployeeDAO {
 			closeAll(rs, pstmt, con);
 		}
 
+	}
+
+	public ArrayList<EmployeeVO> findEmployeeListByJob(String job) throws SQLException {
+		ArrayList<EmployeeVO> list = new ArrayList<EmployeeVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = getConnection();
+
+			StringBuilder sql = new StringBuilder("SELECT e.empno, e.ename, e.sal, e.job, e.deptno, d.dname, d.loc, d.tel ");
+			sql.append("FROM department d ");
+			sql.append("INNER JOIN k_employee e ON e.deptno = d.deptno ");
+			sql.append("WHERE job = ? ");
+			sql.append("ORDER BY sal DESC ");
+			
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, job);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				DepartmentVO dvo = new DepartmentVO(rs.getInt(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				/*
+				 * 생성자 초기화가 아닌 set초기화를 통한 개별적 구성
+				 */
+				//DepartmentVO dvo = new DepartmentVO();
+				//dvo.setDname(rs.getString("dname"));
+				//dvo.setLoc(rs.getString("loc"));
+				EmployeeVO vo = new EmployeeVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), dvo);
+				/*
+				 * set초기화를 통한 개별적 구성
+				 */
+				
+				list.add(vo);
+			}
+			return list;
+			
+		}finally {
+			closeAll(rs, pstmt ,con);
+		}
 	}
 
 }
