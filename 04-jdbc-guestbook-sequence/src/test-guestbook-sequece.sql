@@ -11,6 +11,7 @@ CREATE SEQUENCE guestbook_seq;
 
 --sequence 적용
 INSERT INTO guestbook(guest_no, title, content) VALUES(guestbook_seq.nextval, '즐목', '즐거운 목요일입니다');
+UPDATE table SET a = 1 WHERE id = ~
 /*
  * INESET로 update를 하되, sequence.nextval, 즉 별도의 객체와 메소드를 통해 진행
  */

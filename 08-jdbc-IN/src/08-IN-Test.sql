@@ -16,3 +16,5 @@ WHERE JOB IN (
 	HAVING AVG(SALARY) < (SELECT AVG(SALARY) FROM s_employee)
 )
 ORDER BY SALARY DESC
+
+--maker 농심, 오뚜기가 아닌
